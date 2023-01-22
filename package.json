@@ -1,7 +1,7 @@
 {
   "name": "y",
   "version": "1.0.0",
-  "description": "",
+  "description": "- **Creators:** Eric Turner, Semih Buyuksariyildiz, Jacob Thornburg, Mandana - **Description:** A JSON API designed to input and save student data in multiple different categories. - **Technologies Used:** Javascript, ExpressJS, NodeJS, MongoDb, Mongoose, Cors, Morgan",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,5 +18,13 @@
     "express": "^4.18.2",
     "mongoose": "^6.8.4",
     "morgan": "^1.10.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equality509/StudentAppBackend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/equality509/StudentAppBackend/issues"
+  },
+  "homepage": "https://github.com/equality509/StudentAppBackend#readme"
 }
