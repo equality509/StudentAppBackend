@@ -23,8 +23,6 @@ app.get("/", (req, res) => {
     res.json({message: "gotcha!"})
 })
 
-// Router
-app.use("/student", router);
 
 // Listener
 const PORT = process.env.PORT ?? 4001;
