@@ -1,5 +1,3 @@
-// Get env variables
-dotenv.config();
 // Import dependencies
 import express from "express";
 import morgan from "morgan";
@@ -7,7 +5,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import router from "./controllers/student.js";
 import UserRouter from "./controllers/user.js";
+import auth from "./auth/index.js";
 
+dotenv.config();
 
 
 // Create express app
@@ -19,13 +19,15 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 // Routes
-app.get("/", (req, res) => {
-    res.json({message: "gotcha!"})
-})
+app.get("/", auth, (req, res) => {
+    res.json(req.payload);
+});
 
 // Routers
-app.use("/student", router);
+
 app.use("/user", UserRouter);
+app.use("/student", router);
+
 
 // Listener
 const PORT = process.env.PORT ?? 4001;
