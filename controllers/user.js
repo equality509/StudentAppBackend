@@ -1,17 +1,16 @@
 // Import express and bookmark model
 import dotenv from "dotenv";
-import express from "express";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import { Router } from "express";
 import jwt from "jsonwebtoken";
 dotenv.config();
-const UserRouter = Router();
+const router = Router();
 const { SECRET } = process.env;
 
 
 
-UserRouter.post("/signup", async (req, res) => {
+router.post("/signup", async (req, res) => {
     try {
         req.body.password = await bcrypt.hash(req.body.password, 10);
         const newUser = await User.create(req.body);
@@ -21,7 +20,7 @@ UserRouter.post("/signup", async (req, res) => {
     }
 });
 
-UserRouter.post("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
     try{
         const {username, password} = req.body
         const user = await User.findOne({username})
@@ -41,4 +40,4 @@ UserRouter.post("/login", async (req, res) => {
     }
 });    
 
-export default UserRouter;
+export default router;

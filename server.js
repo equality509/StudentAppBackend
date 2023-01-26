@@ -18,12 +18,12 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 
-// Routes and routers
+// Routes
 app.get("/", (req, res) => {
     res.json({message: "gotcha!"})
 })
 
-// Router
+// Routers
 app.use("/student", router);
 app.use("/user", UserRouter);
 
