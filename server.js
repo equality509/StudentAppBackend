@@ -1,17 +1,19 @@
 // Import dependencies
-import express from "express";
-import morgan from "morgan";
-import cors from "cors";
 import dotenv from "dotenv";
-import router from "./controllers/student.js";
+dotenv.config();
+import express from "express";
+const app = express();
+import cors from "cors";
+import morgan from "morgan";
+import mongoose from "./connection/connection.js"
+import StudentRouter from "./controllers/student.js";
 import UserRouter from "./controllers/user.js";
 import auth from "./auth/index.js";
 
-dotenv.config();
 
 
-// Create express app
-const app = express();
+
+
 
 // Register middleware
 app.use(cors());
@@ -26,7 +28,7 @@ app.get("/", auth, (req, res) => {
 // Routers
 
 app.use("/user", UserRouter);
-app.use("/student", router);
+app.use("/student", StudentRouter);
 
 
 // Listener

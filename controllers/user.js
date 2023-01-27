@@ -2,10 +2,10 @@
 import dotenv from "dotenv";
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
-import { Router } from "express";
+import express from "express";
 import jwt from "jsonwebtoken";
 dotenv.config();
-const router = Router();
+const router = express.Router();
 const { SECRET } = process.env;
 
 
